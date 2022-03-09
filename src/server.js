@@ -1,7 +1,11 @@
 
-const app = require("./index");
+//const app = require("./index");
 const connect = require("./configs/db");
 const cors = require ("cors");
+const express = require("express")
+const app = express();
+app.use(express.json());
+
 
 app.use(cors());
 app.use((req, res, next) => {
@@ -21,7 +25,16 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 5001;
 
 
-app.listen(PORT, async function() {
+const start = async () => {
     await connect();
-    console.log(`listening at port ${PORT}`);
-})
+    app.listen(PORT, () => {
+        console.log(`LISTENING ON PORT ${PORT}`);
+    });
+};
+
+module.exports = {
+    app,
+    start,
+
+}
+
