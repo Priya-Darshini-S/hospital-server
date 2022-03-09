@@ -1,1 +1,1 @@
-nodemon ./src/server.js
+web: nodemon ./src/server.js
