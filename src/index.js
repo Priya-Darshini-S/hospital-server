@@ -7,6 +7,15 @@ const availablController = require("./controllers/availability.controller");
 const costController = require("./controllers/cost.controller")
 app.use(express.json());
 
+app.get('/', (req, res) => {
+    try {
+        const home = 'Welcome';
+
+        return res.status(201).send(home);
+    } catch (e) {
+        return res.status(500).send({ status: 'FAILED', message: e.message });
+    }
+});
 
 app.use("/specs", specialityController);
 app.use("/doctor", doctorController);
