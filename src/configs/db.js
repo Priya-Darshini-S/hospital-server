@@ -1,9 +1,6 @@
-const mongoose = require('mongoose');
+const moongoose = require("mongoose");
 
-const connect = () => {
-    return mongoose.connect(
-        "mongodb+srv://priyas:priyas@cluster0.kga4n.mongodb.net/hospital_app"
-    )
-}
-
-module.exports = connect;
+module.exports = () => {
+   // return moongoose.connect("mongodb://localhost:27017/testing");
+  return moongoose.connect("mongodb+srv://priyas:priya612@cluster0.kga4n.mongodb.net/hospital_appointment");   
+};
